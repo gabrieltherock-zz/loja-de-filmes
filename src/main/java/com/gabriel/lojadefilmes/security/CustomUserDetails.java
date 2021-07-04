@@ -21,12 +21,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+        return usuario.getSenha();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return usuario.getEmail();
     }
 
     @Override
@@ -47,5 +47,9 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return false;
+    }
+
+    public String getNomeCompleto() {
+        return usuario.getPrimeiroNome() + " " + usuario.getUltimoNome();
     }
 }
