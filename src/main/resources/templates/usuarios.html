@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Loja de Filmes</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+  <div>
+    <form th:action="@{/logout}" method="post">
+      <b th:text ="${#request.getUserPrincipal().getName()}"></b>
+      <input type="submit" value="Sign Out" />
+    </form>
+  </div>
+  <div>
+    <h1>Lista de Usuários</h1>
+  </div>
+
+  <div>
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>E-mail</th>
+        <th>Primeiro Nome</th>
+        <th>Último Nome</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="usuario: ${usuarios}">
+        <td th:text="${usuario.id}">ID</td>
+        <td th:text="${usuario.email}">E-mail</td>
+        <td th:text="${usuario.primeiroNome}">Primeiro Nome</td>
+        <td th:text="${usuario.ultimoNome}">Último Nome</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

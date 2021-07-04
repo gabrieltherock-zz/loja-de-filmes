@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class AppController {
 
@@ -35,5 +37,13 @@ public class AppController {
         usuarioRepository.save(usuario);
 
         return "cadastroComSucesso";
+    }
+
+    @GetMapping("/usuarios")
+    public String listUsers(Model model) {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        model.addAttribute("usuarios", usuarios);
+
+        return "usuarios";
     }
 }

@@ -8,7 +8,7 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    private Usuario usuario;
+    private final Usuario usuario;
 
     public CustomUserDetails(Usuario usuario) {
         this.usuario = usuario;
@@ -31,22 +31,22 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public String getNomeCompleto() {
